@@ -41,8 +41,8 @@ Exercise for js+React:
 Create a simple to-do list! UI shall contain a list of to-do items and controls to modify the list:
 
 +You can add an item with title + description to the to-do list
--You can remove an item
--You can edit the description and title
++You can remove an item
++You can edit the description and title
 -You can mark it done, when done its not editable
 
  */
