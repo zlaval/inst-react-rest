@@ -2,7 +2,7 @@ const TextArea = (props) => {
 
 
     return (
-        <div className={"form-group row m-2"}>
+        <div className={"form-group row m-2 text-start"}>
             <label className={"col-sm-2 col-form-label"} htmlFor={props.id}><b>{props.label}</b></label>
             <div className={"col-sm-10"}>
                 <textarea
