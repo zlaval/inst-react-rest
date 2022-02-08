@@ -14,9 +14,9 @@ const TodoListRow = ({todo, dispatch}) => {
         })
     }
 
-    const backgroundColor=todo.done?{
+    const backgroundColor = todo.done ? {
         backgroundColor: `lightgrey`
-    }:{}
+    } : {}
 
     const editorButtonHtml = todo.done ?
         <></> :
@@ -43,7 +43,7 @@ const TodoListRow = ({todo, dispatch}) => {
         ></TodoEditor>
     } else {
         rowHtml =
-            <div className={"container"} >
+            <div className={"container"}>
                 <div className={"row"}>
                     <div className={"col-10"}> {todo.title}</div>
                     <div className={"col-2 text-end"}>

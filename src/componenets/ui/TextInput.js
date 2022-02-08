@@ -1,7 +1,5 @@
-import './TextInput.css'
-
-
 const TextInput = (props) => {
+
     return (
         <div className={"form-group row m-2"}>
             <label htmlFor={props.id} className={"col-sm-2 col-form-label"}><b>{props.label}</b></label>
@@ -14,8 +12,8 @@ const TextInput = (props) => {
                        onChange={e => props.onChange(e.target.value)}
                 />
             </div>
-            <div className={"col-sm-12"}>
-
+            <div className={"col-sm-12"} style={{color: "red"}}>
+                {props.error}
             </div>
         </div>
     )

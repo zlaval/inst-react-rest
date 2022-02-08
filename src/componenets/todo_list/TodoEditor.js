@@ -7,6 +7,7 @@ import {useState} from "react";
 const TodoEditor = ({dispatch, todo, closeOnEvent}) => {
     const [title, setTitle] = useState(todo ? todo.title : "")
     const [description, setDescription] = useState(todo ? todo.description : "")
+    const [error, setError] = useState(null)
 
     const onEventOption = () => {
         if (closeOnEvent) {
@@ -15,16 +16,22 @@ const TodoEditor = ({dispatch, todo, closeOnEvent}) => {
     }
 
     const save = () => {
-        const action = todo ? MODIFY_TODO : ADD_TODO
-        const payload = todo ? new Todo(title, description, todo.id) : new Todo(title, description)
-        dispatch({
-            type: action,
-            payload: payload
+        if (!title) {
+            setError("Title must not be empty.")
+        } else {
+            setError(null)
+            const action = todo ? MODIFY_TODO : ADD_TODO
+            const payload = todo ? new Todo(title, description, todo.id) : new Todo(title, description)
+            dispatch({
+                type: action,
+                payload: payload
 
-        })
-        setTitle("")
-        setDescription("")
-        onEventOption()
+            })
+            setTitle("")
+            setDescription("")
+            onEventOption()
+        }
+
     }
 
     const deleteTodo = () => {
@@ -47,7 +54,9 @@ const TodoEditor = ({dispatch, todo, closeOnEvent}) => {
                 <TextInput id={"todo-title"}
                            label="Tile"
                            value={title}
-                           onChange={setTitle}/>
+                           onChange={setTitle}
+                           error={error}
+                />
             </div>
             <div className={"col-md-12"}>
                 <TextArea id={"todo-description"}
