@@ -20,9 +20,9 @@ const TodoListRow = ({todo, dispatch}) => {
 
     const editorButtonHtml = todo.done ?
         <></> :
-        <div>
+        <div className={"text-center"}>
             <button
-                className={"btn btn-primary mx-2"}
+                className={"btn btn-primary mx-2 my-1"}
                 onClick={e => setEditMode(true)}
             >
                 Edit

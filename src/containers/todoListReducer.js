@@ -2,7 +2,6 @@ import {ADD_TODO, DELETE_TODO, MODIFY_TODO} from "./actions";
 
 function todoListReducer(state = initialState, action) {
     const payload = action.payload
-    console.log(state)
     switch (action.type) {
         case ADD_TODO:
             state.push(payload)
